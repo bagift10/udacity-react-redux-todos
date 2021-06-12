@@ -20,6 +20,10 @@
   </div>
 
   <script type='text/javascript'>
+    function generateId() {
+      return Math.random().toString(36).substring(2) * (new Date()).getTime().toString(36);
+    }
+
     // Library Code
     function createStore(reducer) {
       // The store should have 4 parts
@@ -136,7 +140,7 @@
       console.log('The new state is: ', store.getState());
     });
 
-    store.dispatch(addTodoAction({
+    /* store.dispatch(addTodoAction({
       id: 0,
       name: 'Learn Redux',
       complete: false
@@ -163,7 +167,35 @@
     }));
 
     store.dispatch(removeGoalAction(0));
+    */
+    function addTodo() {
+      const input = document.getElementById('todo');
+      const name = input.value;
+      input.value = '';
 
+      store.dispatch(addTodoAction({
+        name,
+        id: generateId(),
+        complete: false
+      }))
+    }
+
+    function addGoal() {
+      const input = document.getElementById('goal');
+      const name = input.value;
+      input.value = '';
+
+      store.dispatch(addGoalAction({
+        name,
+        id: generateId()
+      }))
+    }
+
+    document.getElementById('todoBtn')
+      .addEventListener('click', addTodo);
+    
+    document.getElementById('goalBtn')
+      .addEventListener('click', addGoal)
   </script>
 </body>
 
