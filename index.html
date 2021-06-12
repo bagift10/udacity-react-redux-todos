@@ -20,6 +20,7 @@
   </div>
 
   <script type='text/javascript'>
+    // Helper function
     function generateId() {
       return Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36);
     }
@@ -145,35 +146,6 @@
       goals.forEach(addGoalToDOM);
       todos.forEach(addTodoToDOM);
     });
-
-    /* store.dispatch(addTodoAction({
-      id: 0,
-      name: 'Learn Redux',
-      complete: false
-    }));
-
-    store.dispatch(addTodoAction({
-      id: 1,
-      name: 'Read a book',
-      complete: false
-    }));
-
-    store.dispatch(removeTodoAction(1));
-
-    store.dispatch(toggleTodoAction(0));
-
-    store.dispatch(addGoalAction({
-      id: 0,
-      name: 'Complete my Nanodegree program'
-    }));
-
-    store.dispatch(addGoalAction({
-      id: 1,
-      name: 'Get a job as a React developer'
-    }));
-
-    store.dispatch(removeGoalAction(0));
-    */
 
     // DOM code
     function addTodo() {
